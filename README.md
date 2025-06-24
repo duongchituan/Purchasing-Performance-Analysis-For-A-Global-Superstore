@@ -1,4 +1,4 @@
-# 📊 Purchasing Performance | Power BI
+# 📊 Purchasing Performance Analysis (PowerBI)
 
 ---
 ![ChatGPT Image 02_07_08 24 thg 6, 2025](https://github.com/user-attachments/assets/eda03e9e-dc15-4842-8ce5-babab120cc21)
