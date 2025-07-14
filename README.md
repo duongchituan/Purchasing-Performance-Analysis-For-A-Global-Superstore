@@ -24,120 +24,126 @@ Tools Used: Power BI
 ### Objective:
 ### 📖 What is this project about? 
  
-This project provides a Power BI dashboard to support strategic decision-making. The objective is:  
+This project aims to develop an Operations Dashboard in Power BI to support executive leadership in monitoring and optimizing procurement activities. As supply chain efficiency, accuracy, and cost control become increasingly critical, visualizing procurement data is essential to:
 
-- Understand company-wide sales performance
+- Ensure goods are ordered at the right time, in the right quantities, and at optimal cost
 
-- Identify top products & regions for market expansion
+- Track supplier performance and proactively identify risks such as delays or shortages
 
-- Support senior management in selecting strategic products 
+- Evaluate the procurement team's ability to meet sales demand across time and product categories
+
+- Empower leadership to make timely, data-driven operational decisions
+
+By delivering this dashboard, the organization will gain a modern, visual management tool that enhances supply chain efficiency and ensures sustainable business growth through informed decision-making.  
 
 ### 👤 Who is this project for?  
 
-✔️ Senior managers & business decision-makers  
+✔️ Purchasing Manager  
 
-✔️ Strategy teams exploring market expansion  
-
-✔️ Product managers evaluating performance  
-
-✔️ Data analysts supporting executive insights  
-
-###  ❓Business Questions:  
-✔️ Which products generate the most revenue and profit?  
-
-✔️ What are the top-performing regions or markets?  
-
-✔️ Which customer segments are the most valuable?  
-
-✔️ Are there markets with growth potential we haven’t tapped into yet?  
-
-✔️ What trends can inform our product and market expansion strategies?  
-
-### 🎯Project Outcome:  
-✔️ Profit Margin Decline in 2014:
-Despite a strong revenue increase (+24% vs. 2013), the company experienced a slight drop in overall profit margin (from 11.97% to 11.51%) due to rising operational costs.
-
-✔️ Shift Toward Costly Shipping Methods:
-There was an increase in order volume using high-cost shipping methods, especially First Class (+33%) and Same Day (+25%), which led to faster growth in shipping expenses than in gross profit.
-
-✔️ Suboptimal Product Mix Impacting Margins:
-The surge in Office Supplies orders—typically low-margin products—combined with costly shipping methods, contributed to the margin decline.
-
-✔️ Return Rate Remained Stable:
-Return rates in key markets (APAC, EU, US) remained steady (around 5–7%) and were not a major driver of profit decline.
-
-✔️ High-Margin Niche Market Identified:
-Canada, though a small market (Revenue: 0.05M), achieved the highest profit margin (27.59%), with Copiers contributing 38% of total profit—highlighting a highly efficient product-market fit.
-
-✔️ Expansion Opportunity Identified:
-Recommend a targeted expansion into Canada, focusing on high-margin products like Copiers, while avoiding scale-up of low-margin categories such as Office Supplies.  
+✔️ Board of Directors (BOD)  
 
 ---
 
 ## 📂 Dataset Description & Data Structure  
 
 ### 📌 Data Source  
-- Source: Kaggle  
-- Size:
-  - The Orders table contains 51,290 records
-  - The People table contains 13 records
-  - The Returns table contains 1,172 records  
-- Format: .csv  
+- Source: Kaggle - Dataset of AdventureWorks    
+- Format: .Pbix  
 
 ### 📊 Data Structure & Relationships  
 
 #### 1️⃣ Tables Used:  
-The dataset consists of three tables:  
-- Orders – Contains detailed transaction and customer information
+The dataset consists of 7 main tables used to build the purchasing dashboard:  
 <details>
-<summary><strong>📊 Table 1: Orders</strong></summary>
+<summary><strong>Table 1: Purchasing_OrderDetail - Line-level order details</strong></summary>
 
-| Column Name     | Data Type | Description                                         |
-|-----------------|-----------|-----------------------------------------------------|
-| Order ID        | VARCHAR   | Unique identifier for each order.                  |
-| Order Date      | DATE      | Date when the order was placed.                   |
-| Ship Date       | DATE      | Date when the order was shipped.                  |
-| Ship Mode       | VARCHAR   | Shipping method used for delivery.                |
-| Customer ID     | VARCHAR   | Unique identifier for each customer.              |
-| Customer Name   | VARCHAR   | Full name of the customer.                        |
-| Segment         | VARCHAR   | Customer segment (e.g., Consumer, Corporate).     |
-| City            | VARCHAR   | City where the order was placed.                  |
-| State           | VARCHAR   | State where the order was placed.                 |
-| Country         | VARCHAR   | Country where the order was placed.               |
-| Postal Code     | VARCHAR   | Postal code of the shipping address.              |
-| Market          | VARCHAR   | Market region (e.g., APAC, EMEA).                 |
-| Region          | VARCHAR   | Geographical region of the order.                 |
-| Product ID      | VARCHAR   | Unique identifier for each product.               |
-| Category        | VARCHAR   | Product category (e.g., Furniture, Office Supplies). |
-| Sub-Category    | VARCHAR   | Sub-category of the product.                      |
-| Product Name    | VARCHAR   | Name of the product ordered.                      |
-| Sales           | DECIMAL   | Revenue generated from the order.                 |
-| Quantity        | INT       | Number of items ordered.                          |
-| Profit          | DECIMAL   | Profit earned from the order.                     |
+| Column Name             | Description                                  |
+|-------------------------|----------------------------------------------|
+| `OrderQty`              | Quantity ordered                             |
+| `ReceivedQty`           | Quantity received                            |
+| `RejectedQty`           | Quantity rejected                            |
+| `StockedQty`            | Quantity stocked                             |
+| `LeadTime_Days`         | Lead time in days                            |
+| `DelayDays`             | Number of delay days                         |
+| `DueDate`, `OnTime`     | Delivery due date and on-time flag           |
+| `IsBackorderedFlag`     | Indicates if the item was backordered        |
+| `UnitPrice`             | Unit price of the item                       |
+| `PurchaseOrderDetailID` | Line item identifier                         |
+| `PurchaseOrderID`, `ProductID` | Foreign keys to orders and products     |
 
 </details>
-- Returns – Stores data on returned orders.  
 <details>
-<summary><strong>📦 Table 2: Returns</strong></summary>
+<summary><strong>Table 2: Product_Inventory – Current inventory levels</strong></summary>
 
-| Column Name | Data Type | Description                                           |
-|-------------|-----------|-------------------------------------------------------|
-| Returned    | VARCHAR   | Indicates whether the order was returned (e.g., 'Yes' or 'No'). |
-| Order ID    | VARCHAR   | Unique identifier for each order.                    |
+| Column Name           | Description                                |
+|------------------------|--------------------------------------------|
+| `Quantity`             | Current inventory quantity                 |
+| `Below Reorder Flag`   | Indicates if inventory is below reorder level |
+| `BelowSafetyStock`     | Indicates stock is below safety threshold  |
+| `OutOfStockProducts`   | Out of stock status                        |
+| `ProductID`            | Foreign key to product                     |
+
 
 </details>
 
-- People – Holds information about sales representatives.
 <details>
-<summary><strong>🧑‍💼 Table 3: People</strong></summary>
+<summary><strong>Table 3: Product_Product – Product master data</strong></summary>
 
-| Column Name | Data Type | Description                                           |
-|-------------|-----------|-------------------------------------------------------|
-| Person      | VARCHAR   | Name of the salesperson.                             |
-| Region      | VARCHAR   | Geographic region where the salesperson operates.    |
+| Column Name           | Description                                |
+|------------------------|--------------------------------------------|
+| `ProductID`            | Unique product identifier                  |
+| `Name`, `Class`, `Style` | Product characteristics                   |
+| `SafetyStockLevel`     | Safety stock value                         |
+| `ReorderPoint`         | Reorder threshold                          |
+| `ListPrice`, `StandardCost` | Price and cost info                  |
+| `ProductSubcategoryID` |             |
+</details>  
 
-</details>
+<details>
+<summary><strong>Table 4: Purchasing_OrderHeader – Order-level metadata</strong></summary>
 
+| Column Name         | Description                                 |
+|----------------------|---------------------------------------------|
+| `PurchaseOrderID`    | Header-level order ID                       |
+| `OrderDate`, `ShipDate` | Order creation and shipping date         |
+| `VendorID`           | Foreign key to vendor                       |
+| `TotalDue`, `Freight`, `SubTotal` | Order-level cost details      |
+</details>  
+
+<details>
+<summary><strong>Table 5: Purchasing_Vendor – Vendor master data</strong></summary>
+
+| Column Name             | Description                            |
+|--------------------------|----------------------------------------|
+| `VendorID`               | Unique vendor ID                       |
+| `Name`, `AccountNumber`  | Vendor info                            |
+| `PreferredVendorLabel`   | Whether vendor is preferred            |
+| `CreditRating`           | Vendor's credit rating                 |
+</details>  
+
+<details>
+<summary><strong>Table 6: Purchasing_ProductVendor – Product_vendor mapping</strong></summary>
+
+| Column Name           | Description                              |
+|------------------------|------------------------------------------|
+| `ProductID`            | Linked product                           |
+| `VendorID`             | Linked vendor                            |
+| `MinOrderQty`, `MaxOrderQty` | Order quantity boundaries        |
+| `StandardPrice`        | Standard unit cost                       |
+| `AverageLeadTime`      | Vendor delivery time in days             |
+</details>  
+
+<details>
+<summary><strong>Table 7: Product_ProductTable – Product_vendor mapping</strong></summary>
+
+| Column Name             | Description                         |
+|--------------------------|-------------------------------------|
+| `ProductID`              | Linked product                      |
+| `ProductCategoryID`      | Category reference                  |
+| `ProductSubcategoryID`   | Subcategory reference               |
+| `Category`               | Product category name               |
+| `Subcategory`            | Product subcategory name            |
+</details> 
 #### 2️⃣ Data Relationships:  
 
 ![image](https://github.com/user-attachments/assets/e16fece0-207e-48c9-81f4-ce7f92fc9958)
@@ -147,25 +153,22 @@ The dataset consists of three tables:
 
 Explain the step-by-step approach taken to solve the problem.  
 
-👉🏻 Insert a screenshot of the Design Thinking steps (Screenshot your Excel design thinking tables for better presentation).  
-
 1️⃣ Empathize  
 
-![image](https://github.com/user-attachments/assets/f39364a6-ff80-4983-b91c-39a670497b71)
+![image](https://github.com/user-attachments/assets/9a174114-56d7-4db5-908c-f8bc29458b63)
 
-![image](https://github.com/user-attachments/assets/8003b524-207e-41ee-b958-cc31c17ef806)
-  
+![image](https://github.com/user-attachments/assets/a1c30bda-9210-452c-ae6a-a097c89332d8)
+
+
 2️⃣ Define point of view  
 
-![image](https://github.com/user-attachments/assets/5658d28f-af43-4772-8017-5255f01d774d)
+![image](https://github.com/user-attachments/assets/f8095e2f-de5a-4c4e-9544-2c587495725b)
 
 3️⃣ Ideate  
 
-![image](https://github.com/user-attachments/assets/cf222246-e7ae-4d5c-bbf9-9d3a418b5225)
+![image](https://github.com/user-attachments/assets/3c861a6a-e804-44dc-85d5-6bc33c65d1b1)
 
-4️⃣ Prototype and review  
-
-This part is in the dashboard
+![image](https://github.com/user-attachments/assets/5f7e537a-a3a5-405c-abf2-ec70395024c1)
 
 ---
 
@@ -173,92 +176,84 @@ This part is in the dashboard
 
 ### 🔍 Dashboard Preview  
 
-#### 1️⃣ Overview 
+#### 1️⃣ Region 
 
-![image](https://github.com/user-attachments/assets/ad0862a1-f30d-459d-8344-fa3a65757af8)  
-
-From 2011 to 2014, the company maintained a strong growth trajectory in both revenue and profit. In 2014 alone, revenue grew significantly (+24% vs. 2013). However, profit margin showed a slight decline across all three key markets (APAC, EU, and US), indicating some underlying issues with profitability efficiency.  
-
-![1](https://github.com/user-attachments/assets/be44600c-98c9-47d7-9c5d-aa8d50263cfc)
-
+![image](https://github.com/user-attachments/assets/234583e1-3625-4070-92ab-4c421cbfb8f1)
 
 📌 Analysis:  
 
- 📈 Revenue increased, but profit didn't keep up
-Profit margin peaked in 2013 (11.97%), not in 2014 when revenue was highest. This suggests that as revenue grew, costs also rose—implying the company may be trading margin for scale.
+1️⃣ Overall performance:  
 
-🚚 Increase in high-cost shipping methods
-In 2014, there was a notable rise in orders using expensive shipping methods such as First Class and Same Day. This shift significantly raised logistics costs, which outpaced gross profit growth and eroded overall profitability.
+- Revenue reached **$3.21M** (+24.41% compared to 2013), and profit was **$369.74K** (+19.56%), showing strong revenue growth but slower profit growth.
 
-🛍️ Higher share of low-margin product categories
-In particular, Office Supplies—a category with relatively low profit margins—experienced a surge in order volume. This shifted the product mix toward less profitable items, reducing the company's overall margin efficiency.  
+- ROI decreased to **13%** (↓4.41%), reflecting rising costs or shrinking profit margins.
 
-![2](https://github.com/user-attachments/assets/826e0533-f500-446f-8e68-1987362e13d3)
+- The **return rate** decreased to **13.74%** (**↓21.22% vs. 2013**), suggesting **improvements in product quality** or **customer experience**, helping to **reduce logistics costs** and **improve profitability**.
 
-🔁 Slight increase in return rate in APAC and US
-Compared to 2013, the return rate rose in key markets like APAC (4.99% → 5.04%) and US (5.90% → 6.12%) in 2014. While the change is small, when combined with expensive shipping and a weak product mix, it added to costs and reduced net revenue.  
+2️⃣ Time trend:  
 
-![3](https://github.com/user-attachments/assets/9509d04d-c6b4-4c28-bca9-6d7f80448e78)
+- Revenue increased consistently from 2011 to 2014.
+  
+- Profit margin remained around **10–12%**, indicating revenue growth did not translate into higher profitability.
 
-⚠️ Three factors combined to reduce profit margin
-The margin drop in 2014 was not caused by a single issue, but by a combination of:
+3️⃣ Regional performance:  
 
-(1) increased use of high-cost shipping,
-(2) a rise in low-margin product share,
-(3) higher return rates.
-→ These factors together exerted cost pressure and squeezed profitability.
-
-🌍 EU – High revenue but also the highest return rate (6.18%)
-Although EU is one of the top contributors in both revenue and profit, it also has the highest return rate among all regions. This signals potential issues with product quality, after-sales service, or customer experience—and could hurt long-term margins if not addressed.
-
-🪑 Furniture – Underperforming product category
-Among the three main categories (Technology, Office Supplies, Furniture), Furniture generated the lowest profit. It may exist for catalog diversity, but in reality, it's dragging down the company's overall performance.  
+- **Central**: largest revenue (**$2.07M**) and highest profit (**$212K**), lowest return rate (**22.38%**), ROI **11.45%**.
+  
+- **South**: second-highest revenue (**$1.18M**), solid profit (**$99.5K**), good return rate (**36%**), ROI **9.24%**.
+  
+- **North**: high profit and ROI (**$148K**, **18.83%**), acceptable return rate (**49.81%**).
+  
+- **North Asia**: highest ROI (**24%**) and strong profit (**$122K**), but very high return rate (**101.91%**), indicating major risks.
+  
+- Other regions (West, Oceania, EMEA, Africa, Southeast Asia, East) show high return rates (**50–84%**) and average or low ROI → not efficient for expansion at this stage.
+  
+- **Caribbean, Central Asia, Canada**: extremely high return rates (**114–583%**) with low revenue → not suitable for expansion.
 
 💡 Recommendation:  
 
-- Review shipping policies, especially for orders using First Class and Same Day. Consider applying minimum order thresholds or extra fees to manage logistics costs.
+🔵 **Prioritize expansion in:**
+- **Central**: most stable market, largest scale, lowest return risk → continue investing, focus on improving ROI through cost optimization.
+  
+- **South**: large market size, moderate return rate, low ROI but potential for increased efficiency with better cost control.
+  
+- **North**: high profit and ROI, acceptable return rate → suitable for simultaneous expansion with Central and South.
 
-- Restructure the product mix to reduce dependency on low-margin items (like Office Supplies) and promote cross-selling with higher-performing products.
+🟡 **Consider conditional expansion in:**
+- **North Asia**: expand only after addressing causes of extremely high return rates, as ROI and profit margins are promising.
 
-- Investigate product quality and customer experience in the EU region, where the return rate is highest. Prioritize after-sales improvements or redesign return policies to limit loss.
+🔴 **Do not expand now in:**
+- West, Oceania, EMEA, Africa, Southeast Asia, East: high return rates and insufficient ROI.
+  
+- Caribbean, Central Asia, Canada: extremely high return rates and low revenue; investigate causes before any expansion.
 
-- Reassess or scale down the Furniture category if it continues to underperform in upcoming periods.
+#### 2️⃣ Product  
 
-- Track profit per order more closely, not just overall revenue or profit, to quickly detect operational inefficiencies.
-
-#### 2️⃣ Dashboard 2 Preview  
-
-![image](https://github.com/user-attachments/assets/57c30008-b5d0-49ba-ae73-cf41a7478857)
+![image](https://github.com/user-attachments/assets/6910602c-1d6e-4a07-a487-7ec85d06de45)
 
 📌 Analysis:   
 
-🇨🇦 Canada – Small market with exceptionally high margin
-Despite contributing only $0.05M in revenue and $0.01M in profit, Canada recorded the highest profit margin (27.59%) in the entire dataset.
-⚠️ However, due to the small sample size, just a few large transactions could create an inflated margin.
-→ Further validation at the SKU/product level is needed to confirm its potential.
+- Top revenue-generating products include Phones ($1.38M), Copiers ($1.25M), and Chairs/Bookcases (each $1.20M). In terms of profitability, Copiers lead with $0.22M, followed by Phones ($0.18M) and Bookcases ($0.13M). These products not only deliver high revenue but also maintain solid profit margins, indicating strong potential for long-term sustainability and further expansion.  
 
-🌍 Africa – A small but surprisingly efficient market
-With $0.59M in revenue and $0.07M in profit, Africa reached a profit margin of 11.48%, aligning with the company average.
-→ This suggests potential for niche market expansion with controlled cost and focused targeting.  
+- However, several product lines are experiencing unusually high return rates, such as Tables (174.15%), Fasteners (152.01%), and Labels (135.18%). These figures point to serious risks related to product quality or after-sales service processes. In contrast, Phones (44.24%), Chairs (52.36%), and Bookcases (60.54%) show relatively low return rates, suggesting these are more stable and reliable products, less likely to incur extra return or customer service costs.  
 
-🖨️ Copiers – Key profit driver in Canada
-Copiers contributed 38% of total profit in Canada, making it a standout product for scaling efforts in this market.
+- Products positioned in the "high revenue – high profit" quadrant — such as Copiers, Phones, Bookcases, and Chairs — are strategic lines that should continue to be prioritized and strengthened. On the other hand, product lines like Fasteners, Supplies, Furnishings, and Labels, which fall into the "low revenue – low profit" zone, should be carefully reviewed for optimization or even removal if necessary.  
 
-📱 Phones – High revenue, modest efficiency
-While it generated the highest revenue ($1.37M) across all SKUs, its profit margin is only 13.07%.
-→ A reassessment is needed to investigate operational or pricing inefficiencies.
-
-📄 Paper & Labels – Low-volume, high-margin SKUs
-Although small in revenue, these SKUs deliver 25%+ profit margins, suggesting strong potential if scaled carefully.
+- Although smartphones top the revenue chart, they suffer from an extremely high return rate (over 2000%), significantly impacting their actual profitability. Meanwhile, underperforming items such as Avery Binder Labels, Push Pins, and Eureka Bags are experiencing severe losses with return rates as high as 117,200%, indicating no remaining business value and should be considered for elimination.  
 
 💡 Recommendation:  
 
-- Scale up operations in Canada, focusing on high-margin categories such as Copiers, Office Supplies, and Technology.
-→ A lean, margin-driven strategy could prove highly effective here.
+1. Prioritize Strategic Product Lines
+Focus on investing in and expanding high-performing products such as 🖨️ **Copiers**, 📱 **Phones**, 📚 **Bookcases**, and 🪑 **Chairs**.. These products significantly contribute to both **revenue** and **profit** while maintaining relatively **low and stable return rates**.
 
-- Explore niche expansion in Africa with selective investment in high-margin SKUs. Prioritize low-risk, cost-effective channels to test the waters.
+2. Improve Product Quality and After-Sales Processes
+For products with ⚠️ **high return rates** such as **Tables**, **Fasteners**, and **Labels**, it's crucial to re-evaluate **product quality**, **packaging**, **product descriptions**, and **return policies** to reduce financial risks caused by excessive returns.
 
-- Re-evaluate the overall SKU mix to reduce dependency on high-revenue but low-margin products like Phones, and shift toward smaller, high-efficiency items such as Paper and Labels.
+3. Optimize Product Portfolio
+Products that fall into the 💸 **“low revenue – low profit”** zone, such as **Fasteners**, **Supplies**, and **Furnishings**, should be gradually phased out or repositioned in the market. This helps the company focus its resources on more profitable lines.
+
+4. Warning on Phone Category
+Although the 📱 **Phone category** generates the highest revenue, its extremely high return rate is significantly eroding actual profit. Stricter quality control, sourcing from more reputable suppliers, or improving after-sales service are necessary steps to prevent avoidable financial losses.
 
 
 ---
