@@ -96,7 +96,7 @@ The dataset consists of 7 main tables used to build the purchasing dashboard:
 | `SafetyStockLevel`     | Safety stock value                         |
 | `ReorderPoint`         | Reorder threshold                          |
 | `ListPrice`, `StandardCost` | Price and cost info                  |
-| `ProductSubcategoryID` |             |
+| `ProductSubcategoryID` | Product is a member of this product subcategory.            |
 </details>  
 
 <details>
@@ -111,7 +111,7 @@ The dataset consists of 7 main tables used to build the purchasing dashboard:
 </details>  
 
 <details>
-<summary><strong>Table 5: Purchasing_Vendor – Vendor master data</strong></summary>
+<summary><strong>Table 5: Purchasing_Vendor – Companies from whom Adventure Works Cycles purchases parts or other goods</strong></summary>
 
 | Column Name             | Description                            |
 |--------------------------|----------------------------------------|
