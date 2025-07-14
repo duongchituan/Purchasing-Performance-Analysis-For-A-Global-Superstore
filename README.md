@@ -181,54 +181,31 @@ Explain the step-by-step approach taken to solve the problem.
 
 📌 Analysis:  
 
-1️⃣ Overall performance:  
+Based on the data presented in the dashboard, the procurement activities for raw materials, goods, and semi-finished products during the reviewed period can be assessed as follows:
 
-- Revenue reached **$3.21M** (+24.41% compared to 2013), and profit was **$369.74K** (+19.56%), showing strong revenue growth but slower profit growth.
+- Order fulfillment and product quality are at optimal levels: Both the Fulfillment Rate and Defect Rate are at 100% and 0% respectively, indicating a highly efficient procurement and inbound logistics process.
 
-- ROI decreased to **13%** (↓4.41%), reflecting rising costs or shrinking profit margins.
+- Significant supply disruption from August onwards: Received quantity and procurement value dropped sharply in August and completely halted by September. This signals potential disruption in the supply chain, possibly due to order delays, halted production schedules, budget constraints, or bottlenecks in internal approval processes.
 
-- The **return rate** decreased to **13.74%** (**↓21.22% vs. 2013**), suggesting **improvements in product quality** or **customer experience**, helping to **reduce logistics costs** and **improve profitability**.
+- Overstocking across multiple items: Numerous products show excessive inventory levels far exceeding their Reorder Points and Safety Stock thresholds, posing risks of inventory obsolescence, increased storage costs, and inefficient capital utilization.
 
-2️⃣ Time trend:  
-
-- Revenue increased consistently from 2011 to 2014.
-  
-- Profit margin remained around **10–12%**, indicating revenue growth did not translate into higher profitability.
-
-3️⃣ Regional performance:  
-
-- **Central**: largest revenue (**$2.07M**) and highest profit (**$212K**), lowest return rate (**22.38%**), ROI **11.45%**.
-  
-- **South**: second-highest revenue (**$1.18M**), solid profit (**$99.5K**), good return rate (**36%**), ROI **9.24%**.
-  
-- **North**: high profit and ROI (**$148K**, **18.83%**), acceptable return rate (**49.81%**).
-  
-- **North Asia**: highest ROI (**24%**) and strong profit (**$122K**), but very high return rate (**101.91%**), indicating major risks.
-  
-- Other regions (West, Oceania, EMEA, Africa, Southeast Asia, East) show high return rates (**50–84%**) and average or low ROI → not efficient for expansion at this stage.
-  
-- **Caribbean, Central Asia, Canada**: extremely high return rates (**114–583%**) with low revenue → not suitable for expansion.
+- Poor performance in certain products: Lock Washer 4, 5 and Lock Nut 5, 6 exhibit high defect/return rates (above 9%), while Sport-100 Helmet shows an extremely low fulfillment rate (6.67%). This could directly impact production continuity if these are critical components.
 
 💡 Recommendation:  
 
-🔵 **Prioritize expansion in:**
-- **Central**: most stable market, largest scale, lowest return risk → continue investing, focus on improving ROI through cost optimization.
-  
-- **South**: large market size, moderate return rate, low ROI but potential for increased efficiency with better cost control.
-  
-- **North**: high profit and ROI, acceptable return rate → suitable for simultaneous expansion with Central and South.
+Based on the findings above, the following actions are recommended:
 
-🟡 **Consider conditional expansion in:**
-- **North Asia**: expand only after addressing causes of extremely high return rates, as ROI and profit margins are promising.
+- Investigate supply chain disruption from August onwards: Review open purchase orders, procurement schedules, and supplier delivery status. Verify that there are no internal bottlenecks in the approval or payment process.
 
-🔴 **Do not expand now in:**
-- West, Oceania, EMEA, Africa, Southeast Asia, East: high return rates and insufficient ROI.
+- Re-evaluate inventory policies: Adjust Safety Stock and Reorder Points, especially for overstocked items. Prioritize consumption of existing stock and implement stock alerts within Power BI to prevent over-ordering.
+
+- Reassess suppliers with poor performance: Perform a vendor performance review focused on suppliers linked to high defect rates and low fulfillment. Consider negotiating revised SLAs or sourcing alternative vendors if required.
+
+- Implement continuous monitoring systems: Develop a real-time dashboard to track key metrics such as inventory levels, open POs, delivery timelines, and defect rates. Set up automated alerts for early detection of abnormal trends.
   
-- Caribbean, Central Asia, Canada: extremely high return rates and low revenue; investigate causes before any expansion.
-
 #### 2️⃣ Vendor  
 
-<img width="1314" height="724" alt="image" src="https://github.com/user-attachments/assets/c9081dcc-a66e-418a-84fb-3fa60f63cd1b" />
+<img width="1315" height="727" alt="image" src="https://github.com/user-attachments/assets/37116bd9-2c69-4d25-97d0-654a25834eea" />
 
 📌 Analysis:   
 
