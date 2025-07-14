@@ -155,20 +155,19 @@ Explain the step-by-step approach taken to solve the problem.
 
 1️⃣ Empathize  
 
-![image](https://github.com/user-attachments/assets/9a174114-56d7-4db5-908c-f8bc29458b63)
+<img width="1322" height="742" alt="image" src="https://github.com/user-attachments/assets/e5592b4c-e405-48e7-b49d-2a26e6f1860b" />
 
-![image](https://github.com/user-attachments/assets/a1c30bda-9210-452c-ae6a-a097c89332d8)
-
+<img width="1038" height="782" alt="image" src="https://github.com/user-attachments/assets/8ece6c98-33dc-428c-a356-ccd7728e35bb" />
 
 2️⃣ Define point of view  
 
-![image](https://github.com/user-attachments/assets/f8095e2f-de5a-4c4e-9544-2c587495725b)
+<img width="899" height="739" alt="image" src="https://github.com/user-attachments/assets/0ee48465-1574-4abf-ab3b-bb056f1a4547" />
 
 3️⃣ Ideate  
 
-![image](https://github.com/user-attachments/assets/3c861a6a-e804-44dc-85d5-6bc33c65d1b1)
+<img width="902" height="434" alt="image" src="https://github.com/user-attachments/assets/62349837-b35f-4fe7-84ac-ea94c5e2b67e" />
 
-![image](https://github.com/user-attachments/assets/5f7e537a-a3a5-405c-abf2-ec70395024c1)
+<img width="919" height="343" alt="image" src="https://github.com/user-attachments/assets/39a807ec-83ff-4da7-a70e-6b916f5ead03" />
 
 ---
 
@@ -176,9 +175,9 @@ Explain the step-by-step approach taken to solve the problem.
 
 ### 🔍 Dashboard Preview  
 
-#### 1️⃣ Region 
+#### 1️⃣ Product 
 
-![image](https://github.com/user-attachments/assets/234583e1-3625-4070-92ab-4c421cbfb8f1)
+<img width="1315" height="727" alt="image" src="https://github.com/user-attachments/assets/b9be3f5b-02a3-4e0b-8488-10e79aa04350" />
 
 📌 Analysis:  
 
@@ -229,7 +228,7 @@ Explain the step-by-step approach taken to solve the problem.
 
 #### 2️⃣ Product  
 
-![image](https://github.com/user-attachments/assets/6910602c-1d6e-4a07-a487-7ec85d06de45)
+![Uploading image.png…]()
 
 📌 Analysis:   
 
