@@ -226,9 +226,9 @@ Explain the step-by-step approach taken to solve the problem.
   
 - Caribbean, Central Asia, Canada: extremely high return rates and low revenue; investigate causes before any expansion.
 
-#### 2️⃣ Product  
+#### 2️⃣ Vendor  
 
-![Uploading image.png…]()
+<img width="1314" height="724" alt="image" src="https://github.com/user-attachments/assets/c9081dcc-a66e-418a-84fb-3fa60f63cd1b" />
 
 📌 Analysis:   
 
