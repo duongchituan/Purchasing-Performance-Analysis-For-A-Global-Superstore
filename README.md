@@ -143,11 +143,11 @@ The dataset consists of 7 main tables used to build the purchasing dashboard:
 | `ProductSubcategoryID`   | Subcategory reference               |
 | `Category`               | Product category name               |
 | `Subcategory`            | Product subcategory name            |
-</details> 
+</details>  
+
 #### 2️⃣ Data Relationships:  
 
-![image](https://github.com/user-attachments/assets/e16fece0-207e-48c9-81f4-ce7f92fc9958)
-
+<img width="1140" height="763" alt="image" src="https://github.com/user-attachments/assets/0ee4b01b-45e6-4ab3-b2a9-b9cc73931b02" />
 
 ## 🧠 Design Thinking Process  
 
